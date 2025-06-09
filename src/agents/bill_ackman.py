@@ -76,7 +76,7 @@ def bill_ackman_agent(state: AgentState):
             + activism_analysis["score"]
             + valuation_analysis["score"]
         )
-        max_possible_score = 20  # Adjust weighting as desired (5 from each sub-analysis, for instance)
+        max_possible_score = 20  # Adjust weighting as desired (5 from each sub-analysis, for instance) many parameter need to be adjusted
         
         # Generate a simple buy/hold/sell (bullish/neutral/bearish) signal
         if total_score >= 0.7 * max_possible_score:
@@ -153,7 +153,7 @@ def analyze_business_quality(metrics: list, financial_line_items: list) -> dict:
         initial, final = revenues[-1], revenues[0]
         if initial and final and final > initial:
             growth_rate = (final - initial) / abs(initial)
-            if growth_rate > 0.5:  # e.g., 50% cumulative growth
+            if growth_rate > 0.5:  # e.g., 50% cumulative growth can be revised on the logic
                 score += 2
                 details.append(f"Revenue grew by {(growth_rate*100):.1f}% over the full period (strong growth).")
             else:
